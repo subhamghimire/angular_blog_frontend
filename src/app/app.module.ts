@@ -8,7 +8,7 @@ import { BlogModule } from './blog/blog.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, AuthModule, BlogModule],
+  imports: [BrowserModule, AppRoutingModule, BlogModule, AuthModule],
   providers: [],
   bootstrap: [AppComponent],
 })
