@@ -1,5 +1,5 @@
 {
-  "name": "blog-frontend",
+  "name": "frontend",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -18,10 +18,6 @@
     "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
-    "@popperjs/core": "^2.11.4",
-    "bootstrap": "4.6.1",
-    "chart.js": "^3.8.2",
-    "clipboard": "^2.0.11",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
