@@ -1,2 +1,120 @@
-<h1>Blog Component</h1>
-<router-outlet></router-outlet>
+<div>
+  <div id="accordion">
+    <div class="col-md-12">
+      <div class="card shadow">
+        <div class="card-header bg-transparent border-0 p-0">
+          <button
+            class="btn btn-link collapsed text-dark"
+            data-toggle="collapse"
+            data-target="#collapseOne"
+            aria-expanded="true"
+            aria-controls="collapseOne"
+          >
+            <h3>Add Blog</h3>
+          </button>
+        </div>
+      </div>
+      <div
+        id="collapseOne"
+        class="collapse bg-white show"
+        aria-labelledby="headingOne"
+        data-parent="#accordion"
+      >
+        <div class="card-body mt-2">
+          <form method="post">
+            <div class="form-group row">
+              <div class="col-md-4 mb-3">
+                <label for="title" class="text-md-left">Title</label>
+                <input
+                  id="title"
+                  type="text"
+                  class="form-control"
+                  name="title"
+                  autocomplete="off"
+                  autofocus
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="excerpt" class="text-md-left">Excerpt</label>
+                <input
+                  id="excerpt"
+                  type="text"
+                  class="form-control"
+                  name="excerpt"
+                  autocomplete="off"
+                  autofocus
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="thumbnail" class="text-md-left">Thumbnail</label>
+                <input
+                  id="thumbnail"
+                  type="file"
+                  class="form-control"
+                  name="thumbnail"
+                  autocomplete="off"
+                  autofocus
+                />
+              </div>
+              <div class="col-md-4 mb-3">
+                <label for="body" class="text-md-left">Body</label>
+                <input
+                  id="body"
+                  type="text"
+                  class="form-control"
+                  name="body"
+                  autocomplete="off"
+                  autofocus
+                />
+              </div>
+            </div>
+            <div class="form-group text-right">
+              <button class="btn btn-success">Add New Blog</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 mt-3">
+    <div class="card shadow">
+      <div class="card-header bg-transparent border-0">
+        <h3 class="text-warning mb-0">Total Blogs(20)</h3>
+      </div>
+      <div class="table-responsive">
+        <table class="table align-items-center bg-white table-flush">
+          <thead>
+            <tr>
+              <th>S.N</th>
+              <th>Title</th>
+              <th>Excerpt</th>
+              <th>Body</th>
+              <th width="150">Manage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Example title</td>
+              <td>Example excerpt</td>
+              <td>Example body</td>
+              <td>
+                <a class="btn btn-sm btn-secondary">
+                  <i class="fa fa-edit"></i>
+                </a>
+                <button
+                  class="btn btn-danger btn-sm"
+                  data-toggle="modal"
+                  data-target="#confirmDeletion"
+                >
+                  <i class="fa fa-trash"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
