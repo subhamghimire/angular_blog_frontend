@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -20,7 +21,13 @@ import { SettingsComponent } from './pages/settings/settings.component';
     DashboardComponent,
     SettingsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, AuthModule, BlogModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    AuthModule,
+    BlogModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
