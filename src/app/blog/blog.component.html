@@ -1,43 +1,17 @@
-<div>
-  <app-add></app-add>
-  <div class="col-md-12 mt-3">
-    <div class="card shadow">
-      <div class="card-header bg-transparent border-0">
-        <h3 class="text-warning mb-0">Total Blogs(20)</h3>
-      </div>
-      <div class="table-responsive">
-        <table class="table align-items-center bg-white table-flush">
-          <thead>
-            <tr>
-              <th>S.N</th>
-              <th>Title</th>
-              <th>Excerpt</th>
-              <th>Body</th>
-              <th width="150">Manage</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>1</td>
-              <td>Example title</td>
-              <td>Example excerpt</td>
-              <td>Example body</td>
-              <td>
-                <a class="btn btn-sm btn-secondary">
-                  <i class="fa fa-edit"></i>
-                </a>
-                <button
-                  class="btn btn-danger btn-sm"
-                  data-toggle="modal"
-                  data-target="#confirmDeletion"
-                >
-                  <i class="fa fa-trash"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+<!-- Sidenav -->
+<app-sidebar></app-sidebar>
+<div class="main-content">
+  <!-- Top navbar -->
+  <app-navbar></app-navbar>
+
+  <!-- content -->
+  <div style="height: 100vh; margin: 20px">
+    <router-outlet></router-outlet>
+  </div>
+  <!-- end content -->
+
+  <!-- footer -->
+  <div class="container-fluid">
+    <app-footer></app-footer>
   </div>
 </div>
