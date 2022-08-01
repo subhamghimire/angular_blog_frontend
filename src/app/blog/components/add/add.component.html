@@ -20,11 +20,13 @@
       data-parent="#accordion"
     >
       <div class="card-body mt-2">
-        <form method="post">
+        <form method="post" #addBlog="ngForm" (ngSubmit)="onSubmit(addBlog)">
           <div class="form-group row">
             <div class="col-md-4 mb-3">
               <label for="title" class="text-md-left">Title</label>
               <input
+                ngModel
+                required
                 id="title"
                 type="text"
                 class="form-control"
@@ -36,6 +38,8 @@
             <div class="col-md-4 mb-3">
               <label for="excerpt" class="text-md-left">Excerpt</label>
               <input
+                ngModel
+                required
                 id="excerpt"
                 type="text"
                 class="form-control"
@@ -47,6 +51,8 @@
             <div class="col-md-4 mb-3">
               <label for="thumbnail" class="text-md-left">Thumbnail</label>
               <input
+                ngModel
+                required
                 id="thumbnail"
                 type="file"
                 class="form-control"
@@ -58,6 +64,8 @@
             <div class="col-md-4 mb-3">
               <label for="body" class="text-md-left">Body</label>
               <input
+                ngModel
+                required
                 id="body"
                 type="text"
                 class="form-control"
@@ -68,7 +76,7 @@
             </div>
           </div>
           <div class="form-group text-right">
-            <button class="btn btn-success">Add New Blog</button>
+            <button class="btn btn-success" type="submit">Add New Blog</button>
           </div>
         </form>
       </div>
