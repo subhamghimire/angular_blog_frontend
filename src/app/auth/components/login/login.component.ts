@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  onSubmit(credentials: any) {
-    console.log(credentials);
+  onSubmit() {
+    console.log(this.loginForm);
   }
 }
