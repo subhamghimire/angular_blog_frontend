@@ -17,11 +17,11 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
+            <tr *ngFor="let blog of blogs">
               <td>1</td>
-              <td>Example title</td>
-              <td>Example excerpt</td>
-              <td>Example body</td>
+              <td>{{ blog.title }}</td>
+              <td>{{ blog.excerpt }}</td>
+              <td>{{ blog.body }}</td>
               <td>
                 <a class="btn btn-sm btn-secondary">
                   <i class="fa fa-edit"></i>

@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
-import { BlogService } from 'src/app/services/blog.service';
+import { BehaviorSubject, Subject, switchMap, take, takeUntil } from 'rxjs';
+import { AuthService } from 'src/app/core/service/auth.service';
+import { BlogService } from 'src/app/core/service/blog.service';
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
@@ -10,8 +11,10 @@ import { BlogService } from 'src/app/services/blog.service';
 export class AddComponent implements OnInit, OnDestroy {
   destroy$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
-  constructor(private service: BlogService) {}
+  private _submitBlog$: Subject<void> = new Subject();
+  constructor(private service: BlogService, private authService: AuthService) {}
 
+  collaped = true;
   ngOnDestroy(): void {
     console.log('destroyed component');
     this.destroy$.next({
@@ -26,25 +29,19 @@ export class AddComponent implements OnInit, OnDestroy {
     //complete
   }
 
-  blogs: any;
-
   ngOnInit(): any {
-    this.service
-      .getAllBlogs()
-      .pipe(takeUntil(this.destroy$))
-      .subscribe({
-        next: (result: any) => {
-          console.log(result);
-          this.blogs = result.data;
-        },
-        error: (err) => {},
-      });
+    // this._submitBlog$
+    //   .pipe(switchMap(() => this.service.getAllBlogs()))
+    //   .subscribe((result) => {
+    //     this.blogs = result;
+    //   });
   }
 
   onSubmit(data: NgForm) {
     this.service.createBlog(data.value).subscribe({
       next: (result: any) => {
         console.log(result);
+        this.service.getAllBlogs();
       },
       error: (err) => {
         console.log(err);
