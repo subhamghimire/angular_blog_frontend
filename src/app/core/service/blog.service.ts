@@ -34,4 +34,8 @@ export class BlogService {
   getABlog(id: string) {
     return this.$http.get(`${this.API_URL}` + '/blogs/' + id);
   }
+
+  updateBlog(data: any, id: string) {
+    return this.$http.put(`${this.API_URL}` + '/blogs/' + id, data);
+  }
 }

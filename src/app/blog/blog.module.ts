@@ -12,6 +12,7 @@ import { NavbarComponent } from '../layouts/navbar/navbar.component';
 import { FooterComponent } from '../layouts/footer/footer.component';
 import { Token } from '../core/interceptor/token.interceptor';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoaderComponent } from './shared/loader.component';
 @NgModule({
   declarations: [
     BlogComponent,
@@ -22,6 +23,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
     SidebarComponent,
     NavbarComponent,
     FooterComponent,
+    LoaderComponent,
   ],
   imports: [CommonModule, BlogRoutingModule, FormsModule],
   providers: [
