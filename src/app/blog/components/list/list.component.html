@@ -24,7 +24,7 @@
               <td>{{ blog.body }}</td>
               <td>
                 <a class="btn btn-sm btn-secondary">
-                  <i class="fa fa-edit"></i>
+                  <i class="fa fa-edit" [routerLink]="'/blogs/' + blog._id"></i>
                 </a>
                 <button
                   class="btn btn-danger btn-sm"

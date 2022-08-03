@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../core/guard/auth.guard';
 import { DashboardComponent } from '../pages/dashboard/dashboard.component';
 import { BlogComponent } from './blog.component';
+import { EditComponent } from './components/edit/edit.component';
 import { ListComponent } from './components/list/list.component';
 
 const routes: Routes = [
@@ -18,6 +19,10 @@ const routes: Routes = [
       {
         path: 'blogs',
         component: ListComponent,
+      },
+      {
+        path: 'blogs/:id',
+        component: EditComponent,
       },
     ],
   },

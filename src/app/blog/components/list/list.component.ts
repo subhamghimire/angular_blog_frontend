@@ -22,6 +22,7 @@ export class ListComponent implements OnInit, OnDestroy {
     // this.service.getAllBlogs().subscribe((result) => {
     //   this.blogs = result;
     // });
+
     this.service.init();
   }
 }

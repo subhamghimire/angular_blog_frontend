@@ -30,4 +30,8 @@ export class BlogService {
       this.init();
     });
   }
+
+  getABlog(id: string) {
+    return this.$http.get(`${this.API_URL}` + '/blogs/' + id);
+  }
 }
