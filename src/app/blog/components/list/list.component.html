@@ -17,7 +17,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let blog of blogs">
+            <tr *ngFor="let blog of blogs | async">
               <td>1</td>
               <td>{{ blog.title }}</td>
               <td>{{ blog.excerpt }}</td>

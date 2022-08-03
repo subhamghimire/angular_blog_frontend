@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Blog } from 'src/app/core/models/blog.model';
 import { BlogService } from 'src/app/core/service/blog.service';
 
 @Component({
@@ -6,19 +8,20 @@ import { BlogService } from 'src/app/core/service/blog.service';
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss'],
 })
-export class ListComponent implements OnInit {
-  blogs: any;
+export class ListComponent implements OnInit, OnDestroy {
+  public blogs!: Observable<Blog[]>;
   constructor(private service: BlogService) {}
+  ngOnDestroy(): void {
+    console.log('destroy component and unsubscribe / prevent memory leaks');
+    //
+    //
+  }
 
   ngOnInit(): void {
-    this.service
-      .getAllBlogs()
-      // .pipe(takeUntil(this.destroy$))
-      .subscribe({
-        next: (result: any) => {
-          this.blogs = result.blogs;
-        },
-        error: (err) => {},
-      });
+    this.blogs = this.service.getAllBlogs();
+    // this.service.getAllBlogs().subscribe((result) => {
+    //   this.blogs = result;
+    // });
+    this.service.init();
   }
 }

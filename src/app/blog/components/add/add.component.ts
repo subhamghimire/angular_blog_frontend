@@ -1,4 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnDestroy,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { BehaviorSubject, Subject, switchMap, take, takeUntil } from 'rxjs';
 import { AuthService } from 'src/app/core/service/auth.service';
@@ -29,23 +35,9 @@ export class AddComponent implements OnInit, OnDestroy {
     //complete
   }
 
-  ngOnInit(): any {
-    // this._submitBlog$
-    //   .pipe(switchMap(() => this.service.getAllBlogs()))
-    //   .subscribe((result) => {
-    //     this.blogs = result;
-    //   });
-  }
+  ngOnInit(): any {}
 
   onSubmit(data: NgForm) {
-    this.service.createBlog(data.value).subscribe({
-      next: (result: any) => {
-        console.log(result);
-        this.service.getAllBlogs();
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
+    this.service.createBlog(data.value);
   }
 }

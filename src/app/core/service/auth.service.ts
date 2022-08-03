@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { BehaviorSubject, map } from 'rxjs';
 
 interface LoginResponse {
@@ -16,7 +17,7 @@ export class AuthService {
   );
   public _accessToken$ = this._accessTokenSubject.asObservable();
 
-  constructor(public $http: HttpClient) {}
+  constructor(public $http: HttpClient, private router: Router) {}
 
   signUp(data: any) {
     return this.$http.post(`${this.API_URL}` + '/auth/register', data);
@@ -37,6 +38,8 @@ export class AuthService {
       );
   }
   logout() {
-    return localStorage.removeItem('access_token');
+    this._accessTokenSubject.next(null);
+    localStorage.removeItem('access_token');
+    this.router.navigate(['/']);
   }
 }
