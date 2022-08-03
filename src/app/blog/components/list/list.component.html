@@ -3,7 +3,7 @@
   <div class="col-md-12 mt-3">
     <div class="card shadow">
       <div class="card-header bg-transparent border-0">
-        <h3 class="text-warning mb-0">Total Blogs(20)</h3>
+        <h3 class="text-warning mb-0">Total Blogs({{ totalBlogsCount() }})</h3>
       </div>
       <div class="table-responsive">
         <table class="table align-items-center bg-white table-flush">
@@ -17,8 +17,8 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let blog of blogs | async">
-              <td>1</td>
+            <tr *ngFor="let blog of blogs | async; let i = index">
+              <td>{{ i + 1 }}</td>
               <td>{{ blog.title }}</td>
               <td>{{ blog.excerpt }}</td>
               <td>{{ blog.body }}</td>
@@ -30,6 +30,7 @@
                   class="btn btn-danger btn-sm"
                   data-toggle="modal"
                   data-target="#confirmDeletion"
+                  (click)="deleteBlog(blog._id)"
                 >
                   <i class="fa fa-trash"></i>
                 </button>

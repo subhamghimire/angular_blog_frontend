@@ -25,4 +25,12 @@ export class ListComponent implements OnInit, OnDestroy {
 
     this.service.init();
   }
+
+  totalBlogsCount() {
+    return this.service.total;
+  }
+
+  deleteBlog(id: string) {
+    this.service.deleteBlog(id);
+  }
 }

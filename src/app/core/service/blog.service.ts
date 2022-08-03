@@ -11,6 +11,7 @@ export class BlogService {
 
   private blogs$ = new BehaviorSubject<Blog[]>([]); //can access last data emitted
 
+  public total!: number;
   constructor(public $http: HttpClient) {}
 
   public init(): void {
@@ -18,6 +19,7 @@ export class BlogService {
       .get<Blog[]>(`${this.API_URL}` + '/blogs')
       .subscribe((result: any) => {
         this.blogs$.next(result.blogs);
+        this.total = result.blogs.length;
       });
   }
 
@@ -37,5 +39,13 @@ export class BlogService {
 
   updateBlog(data: any, id: string) {
     return this.$http.put(`${this.API_URL}` + '/blogs/' + id, data);
+  }
+
+  deleteBlog(id: string) {
+    return this.$http
+      .delete(`${this.API_URL}` + '/blogs/' + id)
+      .subscribe(() => {
+        this.init();
+      });
   }
 }
