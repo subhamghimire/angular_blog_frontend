@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject, filter, map, Observable, Subject } from 'rxjs';
 import { Blog } from '../models/blog.model';
 
 @Injectable({
@@ -17,9 +17,10 @@ export class BlogService {
   public init(): void {
     this.$http
       .get<Blog[]>(`${this.API_URL}` + '/blogs')
-      .subscribe((result: any) => {
-        this.blogs$.next(result.blogs);
-        this.total = result.blogs.length;
+      .pipe(map((data: any) => data.blogs))
+      .subscribe((blogs: Blog[]) => {
+        this.blogs$.next(blogs);
+        this.total = blogs.length;
       });
   }
 

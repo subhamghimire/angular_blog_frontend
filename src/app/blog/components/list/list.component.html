@@ -16,8 +16,8 @@
               <th width="150">Manage</th>
             </tr>
           </thead>
-          <tbody>
-            <tr *ngFor="let blog of blogs | async; let i = index">
+          <tbody *ngIf="blogs | async as bls">
+            <tr *ngFor="let blog of bls; let i = index">
               <td>{{ i + 1 }}</td>
               <td>{{ blog.title }}</td>
               <td>{{ blog.excerpt }}</td>
